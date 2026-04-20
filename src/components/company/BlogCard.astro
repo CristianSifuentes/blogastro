@@ -1,0 +1,78 @@
+---
+import { Image } from "astro:assets";
+const { posts, maxCardsToShow } = Astro.props;
+---
+
+{
+  posts.slice(0, maxCardsToShow).map((post) => (
+    <article class="card bg-base-100 rounded-xl">
+      <a class="w-full relative" href={`/blog/${post.slug}`}>
+        <Image
+          src={post.data.image}
+          format="webp"
+          class="w-full h-52 rounded-xl object-cover"
+          alt={post.data.title}
+        />
+      </a>
+
+      <div class="card-body p-0 font-outfit">
+        <div class="flex items-center gap-4 mt-3">
+          <span class="text-primary">{post.data.category}</span>
+        </div>
+
+        <a href={`/blog/${post.slug}`} class="group">
+          <div class="flex items-start gap-3 mt-1.5 mb-2">
+            <h2 class="font-semibold text-lg lg:text-xl text-base-content flex-1 pr-2 line-clamp-2">
+              {post.data.title}
+            </h2>
+            <div class="flex-shrink-0 w-6 h-6 mt-1 relative">
+              <div class="absolute inset-0 bg-primary/10 rounded-full transition-transform duration-200 group-hover:scale-0" />
+              <div class="absolute inset-0 flex items-center justify-center">
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  width="14"
+                  height="14"
+                  class="text-primary/70 transition-all duration-200 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 group-hover:text-primary"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                >
+                  <path d="M7 17L17 7" />
+                  <path d="M7 7h10v10" />
+                </svg>
+              </div>
+            </div>
+          </div>
+        </a>
+
+        <div class="mb-4">
+          <p class="text-sm lg:text-base text-base-content/70 line-clamp-2">
+            {post.data.description}
+          </p>
+        </div>
+
+        <div class="flex items-center gap-3">
+          <Image
+            src={post.data.authorImage}
+            format="webp"
+            class="w-8 h-8 rounded-full object-cover ring-1 ring-base-content/10"
+            alt={post.data.author}
+            height={32}
+            width={32}
+          />
+          <div>
+            <span class="text-sm font-semibold text-base-content">
+              {post.data.author}
+            </span>
+            <time class="flex items-center text-xs text-base-content/50">
+              {post.data.date}
+            </time>
+          </div>
+        </div>
+      </div>
+    </article>
+  ))
+}

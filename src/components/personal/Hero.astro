@@ -1,0 +1,169 @@
+---
+const floatingKeywords = [
+  { text: "SEO", position: { top: "20%", left: "12%" } },
+  { text: "Google Ads", position: { top: "15%", right: "8%" } },
+  { text: "Social Media", position: { top: "35%", left: "5%" } },
+  { text: "Analytics", position: { top: "50%", right: "15%" } },
+  { text: "Content Marketing", position: { top: "65%", left: "10%" } },
+  { text: "Lead Generation", position: { top: "45%", right: "5%" } },
+  { text: "Brand Strategy", position: { top: "75%", right: "12%" } },
+  { text: "Email Marketing", position: { top: "25%", left: "2%" } },
+];
+---
+
+<div class="relative overflow-hidden min-h-screen font-outfit">
+  <div class="absolute inset-0 -z-10 pointer-events-none">
+    <div
+      class="absolute inset-0 bg-gradient-to-b from-base-200 via-base-100 to-base-100"
+    >
+    </div>
+
+    <div
+      class="absolute -top-24 -left-20 w-[44rem] h-[44rem] rounded-full blur-3xl opacity-25 bg-primary/20"
+    >
+    </div>
+    <div
+      class="absolute top-12 -right-24 w-[36rem] h-[36rem] rounded-full blur-3xl opacity-20 bg-secondary/18"
+    >
+    </div>
+
+    <div
+      class="absolute inset-0 opacity-6"
+      style="background-image: repeating-linear-gradient(90deg, rgba(255,255,255,0.02) 0px, rgba(255,255,255,0.02) 1px, transparent 1px, transparent 40px);"
+    >
+    </div>
+
+    <div
+      class="absolute left-1/2 -translate-x-1/2 bottom-0 w-screen max-w-none h-[48vh] bg-gradient-to-t from-base-100 via-base-100/90 to-transparent z-10"
+    >
+    </div>
+
+    <div class="absolute inset-0">
+      <span
+        style="left: 8%; top: 22%;"
+        class="absolute w-1.5 h-1.5 rounded-full bg-base-content/8"></span>
+      <span
+        style="left: 22%; top: 12%;"
+        class="absolute w-1.5 h-1.5 rounded-full bg-base-content/8"></span>
+      <span
+        style="left: 78%; top: 30%;"
+        class="absolute w-1.5 h-1.5 rounded-full bg-base-content/8"></span>
+      <span
+        style="left: 65%; top: 72%;"
+        class="absolute w-1.5 h-1.5 rounded-full bg-base-content/8"></span>
+      <span
+        style="left: 40%; top: 85%;"
+        class="absolute w-1.5 h-1.5 rounded-full bg-base-content/8"></span>
+    </div>
+  </div>
+
+  <div class="container mx-auto px-4 pt-28">
+    <div
+      class="flex flex-col items-center justify-center max-w-6xl mx-auto relative z-10"
+    >
+      <div class="mb-2">
+        <div
+          class="badge badge-primary badge-soft badge-lg rounded-full font-outfit"
+        >
+          Hello
+        </div>
+      </div>
+
+      <div class="text-center">
+        <h1
+          class="text-5xl md:text-6xl lg:text-7xl font-bold mb-6 tracking-tight"
+        >
+          I'm Antonio
+          <br />
+          <span
+            class="font-extralight bg-gradient-to-r from-primary to-secondary bg-clip-text text-transparent"
+          >
+            Digital Marketer & Founder
+          </span>
+        </h1>
+      </div>
+
+      <div class="relative w-full max-w-3xl mx-auto mt-[-5%]">
+        <div
+          class="absolute inset-0 bg-gradient-to-r from-primary/20 via-primary/10 to-secondary/20 rounded-3xl blur-3xl opacity-45"
+        >
+        </div>
+        <div
+          class="pointer-events-none absolute left-1/2 -translate-x-1/2 bottom-0 w-screen max-w-none h-[50vh] bg-gradient-to-b from-transparent to-base-100 z-10"
+        >
+        </div>
+
+        <div class="w-full relative flex justify-center items-center">
+          <img
+            src="/images/antonio.png"
+            alt="Expert Digital Marketer"
+            width="700"
+            height="700"
+            class="w-[25rem] lg:w-[40rem] z-0"
+            loading="eager"
+          />
+        </div>
+
+        {
+          floatingKeywords.map((item, index) => (
+            <div
+              class="floating-keyword absolute"
+              data-index={index}
+              style={item.position}
+            >
+              <div class="px-3 py-1.5 rounded-full bg-base-200/30 backdrop-blur-md border border-base-content/10 text-xs font-medium text-base-content/80 shadow-lg hover:shadow-xl hover:bg-base-200/50 transition-all duration-300">
+                {item.text}
+              </div>
+            </div>
+          ))
+        }
+      </div>
+    </div>
+  </div>
+</div>
+
+<script>
+  import { animate, inView } from "motion";
+
+  document.addEventListener("DOMContentLoaded", () => {
+    const keywords = document.querySelectorAll(".floating-keyword");
+
+    keywords.forEach((keyword, index) => {
+      const keywordElement = keyword as HTMLElement;
+
+      keywordElement.style.opacity = "0";
+      keywordElement.style.transform = "scale(0) translateY(20px)";
+
+      inView(
+        keyword,
+        () => {
+          animate(
+            keyword,
+            {
+              opacity: 1,
+              scale: 1,
+              y: 0,
+            },
+            {
+              delay: index * 0.12,
+              type: "spring",
+              damping: 20,
+              stiffness: 120,
+            }
+          );
+        },
+        { amount: 0.1 }
+      );
+
+      keyword.addEventListener("mouseenter", () => {
+        animate(keyword, { scale: 1.06 }, { duration: 0.18 });
+      });
+
+      keyword.addEventListener("mouseleave", () => {
+        animate(keyword, { scale: 1 }, { duration: 0.18 });
+      });
+    });
+  });
+
+  document.addEventListener("astro:before-preparation", () => {});
+</script>

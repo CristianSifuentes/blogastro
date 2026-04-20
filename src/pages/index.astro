@@ -1,0 +1,25 @@
+---
+import Hero from "../components/personal/Hero.astro";
+import TopArticles from "../components/personal/TopArticles.astro";
+import RecentBlogs from "../components/personal/RecentBlogs.astro";
+import NewsletterCard from "../components/personal/NewsletterCard.astro";
+import FeaturedPost from "../components/personal/FeaturedPost.astro";
+import { getCollection } from "astro:content";
+import PersonalLayout from "../layouts/PersonalLayout.astro";
+
+const posts = await getCollection("posts");
+const featuredPost = posts.find((post) => post.data.featuredPost === true);
+---
+
+<PersonalLayout title="Home" description="Welcome to my blog">
+  <div class="w-full">
+    <Hero />
+    <div class="px-5 xl:px-10">
+      <RecentBlogs />
+      <FeaturedPost featuredPost={featuredPost} />
+      <TopArticles />
+      <NewsletterCard />
+    </div>
+    </div>
+  </div>
+</PersonalLayout>

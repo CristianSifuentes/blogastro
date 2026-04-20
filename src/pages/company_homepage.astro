@@ -1,0 +1,19 @@
+---
+import Hero from "../components/company/Hero.astro";
+import RecentBlogs from "../components/company/RecentBlogs.astro";
+import AdBanner from "../components/company/AdBanner.astro";
+import TopArticles from "../components/company/TopArticles.astro";
+import CompanyLayout from "../layouts/CompanyLayout.astro";
+---
+
+<CompanyLayout title="Company Homepage" description="Welcome to our company homepage">
+  <div class="w-full">
+    <Hero/>
+    <div class="divider divide-base-content"></div>
+    <div class="px-5 xl:px-28">
+    <RecentBlogs />
+    <AdBanner />
+    <TopArticles />
+    </div>
+  </div>
+</CompanyLayout>

@@ -1,0 +1,91 @@
+---
+import { Image } from "astro:assets";
+import { getCollection } from "astro:content";
+
+const posts = await getCollection("posts");
+const featuredPost = posts.find((post) => post.data.featuredPost === true);
+---
+
+<section class="h-full">
+  <div class="max-w-[1400px] mx-auto px-4 sm:px-8 lg:px-12 font-outfit pt-16">
+    <div class="py-20">
+      <div class="bg-base-300/50 rounded-2xl overflow-hidden">
+        <div class="p-6 sm:p-8 md:p-12">
+          <div class="xl:flex gap-10 items-center space-y-8 xl:space-y-0">
+            <div class="flex-1 min-w-0">
+              <div
+                class="relative aspect-[16/10] xl:aspect-auto xl:h-[500px] rounded-lg overflow-hidden"
+              >
+                <Image
+                  src={featuredPost.data.image}
+                  alt={featuredPost.data.title}
+                  format="webp"
+                  loading="eager"
+                  class="w-full h-full object-cover rounded-lg"
+                />
+              </div>
+            </div>
+
+            <!-- Content Container -->
+            <div class="flex-1 min-w-0 xl:max-w-xl">
+              <div class="space-y-8">
+                <div class="inline-flex items-center gap-3">
+                  <div class="h-px w-12 bg-primary"></div>
+                  <span
+                    class="text-primary text-sm tracking-[0.2em] uppercase font-medium"
+                  >
+                    Featured Article
+                  </span>
+                </div>
+
+                <h1
+                  class="text-3xl sm:text-4xl lg:text-5xl text-base-content leading-[1.1]"
+                >
+                  {featuredPost.data.title}
+                </h1>
+
+                <p
+                  class="text-base-content/60 text-base sm:text-lg leading-relaxed"
+                >
+                  {featuredPost.data.description}
+                </p>
+
+                <div class="pt-4 flex items-center gap-8 flex-wrap">
+                  <a
+                    href={`/blog/${featuredPost.slug}`}
+                    class="group inline-flex items-center text-base-content"
+                  >
+                    <span class="relative font-medium">
+                      Read Article
+                      <span
+                        class="absolute bottom-0 left-0 w-full h-px bg-primary scale-x-0 group-hover:scale-x-100 transition-transform duration-300 ease-out"
+                      >
+                      </span>
+                    </span>
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      class="w-5 h-5 ml-2 transform transition-transform duration-300 group-hover:translate-x-1"
+                      fill="none"
+                      viewBox="0 0 24 24"
+                      stroke="currentColor"
+                      stroke-width="2"
+                    >
+                      <path
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                        d="M14 5l7 7m0 0l-7 7m7-7H3"></path>
+                    </svg>
+                  </a>
+
+                  <div class="h-8 w-px bg-base-content/10"></div>
+
+                  <div class="text-base-content/40 text-sm">5 min read</div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
