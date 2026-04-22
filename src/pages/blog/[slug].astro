@@ -36,10 +36,13 @@ const { Content } = await post.render();
         {post.data.title}
       </h1>
       <section class="flex mb-10">
-        <img
+        <Image
           src={post.data.authorImage}
           alt={post.data.author}
-          class="w-10 h-10 rounded-full object-cover"
+          format="webp"
+          width={40}
+          height={40}
+          class="w-10 h-10 rounded-full object-cover ring-1 ring-base-content/10"
         />
         <div class="flex flex-col ml-3">
           <h2 class="text-md font-semibold">{post.data.author}</h2>
