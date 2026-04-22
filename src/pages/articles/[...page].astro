@@ -36,7 +36,7 @@ const { data: allPosts } = page;
       </p>
     </div>
   </div>
-  <div class="grid grid-cols-1 md:grid-cols-2 gap-10 mb-20 mt-16">
+  <div class="grid grid-cols-1 md:grid-cols-2 gap-10 mb-20 mt-16 stagger-in">
     <BlogCard posts={allPosts} />
   </div>
   <Pagination nextPosts={page.url.next} prevPosts={page.url.prev} />
