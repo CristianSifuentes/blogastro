@@ -3,6 +3,17 @@
 
 @theme {
   --font-outfit: "Outfit Variable", "sans-serif";
+  --brand-deep-black: #0b0b0d;
+  --brand-soft-graphite: #1a1a1f;
+  --brand-dark-surface: #121217;
+  --brand-border-gray: #2a2a30;
+  --brand-warm-light-gray: #d9d7cf;
+  --brand-muted-gold-glow: #b8a96a;
+  --brand-deep-gold-overlay: #8c7a2f;
+  --brand-electric-cyan: #2ed3e6;
+  --brand-soft-coral: #e6a38a;
+  --brand-text-primary: #f2f2f2;
+  --brand-text-secondary: #a0a0a8;
 }
 
 @plugin "daisyui" {
@@ -14,26 +25,26 @@
   default: true;
   prefersdark: true;
   color-scheme: "dark";
-  --color-base-100: oklch(20% 0.042 265.755);
-  --color-base-200: oklch(10% 0.042 265.755);
-  --color-base-300: oklch(0% 0 0);
-  --color-base-content: oklch(96% 0.003 264.542);
-  --color-primary: oklch(48% 0.0926 195.19);
-  --color-primary-content: oklch(88% 0.0926 195.19);
-  --color-secondary: oklch(78% 0.154 211.53);
-  --color-secondary-content: oklch(39% 0.07 227.392);
-  --color-accent: oklch(77% 0.152 181.912);
-  --color-accent-content: oklch(43% 0.078 188.216);
-  --color-neutral: oklch(15% 0.03 270);
-  --color-neutral-content: oklch(100% 0 0);
-  --color-info: oklch(74% 0.16 232.661);
-  --color-info-content: oklch(29% 0.066 243.157);
-  --color-success: oklch(76% 0.177 163.223);
-  --color-success-content: oklch(26% 0.051 172.552);
-  --color-warning: oklch(90% 0.182 98.111);
-  --color-warning-content: oklch(47% 0.114 61.907);
-  --color-error: oklch(71% 0.194 13.428);
-  --color-error-content: oklch(27% 0.105 12.094);
+  --color-base-100: #0b0b0d;
+  --color-base-200: #121217;
+  --color-base-300: #1a1a1f;
+  --color-base-content: #f2f2f2;
+  --color-primary: #2ed3e6;
+  --color-primary-content: #0b0b0d;
+  --color-secondary: #b8a96a;
+  --color-secondary-content: #0b0b0d;
+  --color-accent: #e6a38a;
+  --color-accent-content: #0b0b0d;
+  --color-neutral: #1a1a1f;
+  --color-neutral-content: #d9d7cf;
+  --color-info: #2ed3e6;
+  --color-info-content: #0b0b0d;
+  --color-success: #5fc49d;
+  --color-success-content: #0b0b0d;
+  --color-warning: #8c7a2f;
+  --color-warning-content: #f2f2f2;
+  --color-error: #e6a38a;
+  --color-error-content: #0b0b0d;
   --radius-selector: 2rem;
   --radius-field: 2rem;
   --radius-box: 1rem;
@@ -44,31 +55,43 @@
   --noise: 0;
 }
 
+:root,
+[data-theme="blogdark"] {
+  --app-border: #2a2a30;
+  --app-text-secondary: #a0a0a8;
+  --app-gold-overlay: #8c7a2f;
+}
+
+::selection {
+  background: color-mix(in srgb, #2ed3e6 35%, transparent);
+  color: #f2f2f2;
+}
+
 @plugin "daisyui/theme" {
   name: "light";
   default: false;
   prefersdark: false;
   color-scheme: "light";
-  --color-base-100: oklch(100% 0.001 73.684);
-  --color-base-200: oklch(98% 0.002 73.684);
-  --color-base-300: oklch(96% 0.003 73.684);
-  --color-base-content: oklch(0% 0 0);
-  --color-primary: oklch(48% 0.0926 195.19);
-  --color-primary-content: oklch(88% 0.0926 195.19);
-  --color-secondary: oklch(78% 0.154 211.53);
-  --color-secondary-content: oklch(39% 0.07 227.392);
-  --color-accent: oklch(77% 0.152 181.912);
-  --color-accent-content: oklch(43% 0.078 188.216);
-  --color-neutral: oklch(0% 0 0);
-  --color-neutral-content: oklch(100% 0 0);
-  --color-info: oklch(74% 0.16 232.661);
-  --color-info-content: oklch(29% 0.066 243.157);
-  --color-success: oklch(76% 0.177 163.223);
-  --color-success-content: oklch(26% 0.051 172.552);
-  --color-warning: oklch(90% 0.182 98.111);
-  --color-warning-content: oklch(47% 0.114 61.907);
-  --color-error: oklch(71% 0.194 13.428);
-  --color-error-content: oklch(27% 0.105 12.094);
+  --color-base-100: #d9d7cf;
+  --color-base-200: #cbc8be;
+  --color-base-300: #bcb8ad;
+  --color-base-content: #121217;
+  --color-primary: #8c7a2f;
+  --color-primary-content: #f2f2f2;
+  --color-secondary: #2ed3e6;
+  --color-secondary-content: #0b0b0d;
+  --color-accent: #e6a38a;
+  --color-accent-content: #121217;
+  --color-neutral: #1a1a1f;
+  --color-neutral-content: #f2f2f2;
+  --color-info: #2ed3e6;
+  --color-info-content: #0b0b0d;
+  --color-success: #5fc49d;
+  --color-success-content: #0b0b0d;
+  --color-warning: #b8a96a;
+  --color-warning-content: #121217;
+  --color-error: #e6a38a;
+  --color-error-content: #121217;
   --radius-selector: 2rem;
   --radius-field: 2rem;
   --radius-box: 1rem;
