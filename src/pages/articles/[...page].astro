@@ -15,12 +15,28 @@ const { data: allPosts } = page;
 ---
 
 <Layout title="Articles" description="All articles">
-  <div class="mt-28 flex justify-center items-center">
-    <h1 class="text-3xl md:text-5xl font-outfit font-semibold text-center max-w-2xl">
-      Articles on digital marketing, brand building, and design.
-    </h1>
+  <div class="mt-28 flex justify-center items-center px-4">
+    <div class="text-center max-w-3xl font-outfit">
+      <div class="badge badge-primary badge-soft rounded-full font-semibold mb-4">
+        AI Native Journal
+      </div>
+      <h1 class="text-3xl md:text-5xl font-semibold leading-tight">
+        I am Cristian,
+        <br />
+        Software Engineer
+        <br />
+        & native AI First
+        <br />
+        founder.
+      </h1>
+      <p class="mt-5 text-base md:text-lg text-base-content/70">
+        Practical insights on AI-first product engineering, scalable software
+        architecture, and founder execution to build meaningful digital
+        products with speed and clarity.
+      </p>
+    </div>
   </div>
-  <div class="grid grid-cols-1 md:grid-cols-2 gap-10 mb-20 mt-16">
+  <div class="grid grid-cols-1 md:grid-cols-2 gap-10 mb-20 mt-16 stagger-in">
     <BlogCard posts={allPosts} />
   </div>
   <Pagination nextPosts={page.url.next} prevPosts={page.url.prev} />

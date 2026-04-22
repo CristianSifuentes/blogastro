@@ -6,7 +6,7 @@ const { posts, maxCardsToShow } = Astro.props;
 
 {
   posts.slice(0, maxCardsToShow).map((post) => (
-    <article class="card lg:card-side ring-1 ring-base-content/10 bg-base-300/20 p-7 rounded-3xl">
+    <article class="card lg:card-side elegant-card ring-1 ring-base-content/10 bg-base-300/20 p-7 rounded-3xl">
       <a class="w-full relative" href={`/blog/${post.slug}`}>
         <Image
           src={post.data.image}
@@ -55,7 +55,7 @@ const { posts, maxCardsToShow } = Astro.props;
           </p>
         </div>
 
-        <a href={`/blog/${post.slug}`} class="mt-auto flex items-center">
+        <a href={`/blog/${post.slug}`} class="mt-auto flex items-center fluid-link">
           <h2 class="text-sm font-semibold text-primary">Read article</h2>
           <svg
             viewBox="0 0 16 16"
